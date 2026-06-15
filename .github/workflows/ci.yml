@@ -23,3 +23,4 @@ jobs:
         with:
           name: cliraop-linux-x86_64
           path: cliraop-linux-x86_64
+          archive: false
