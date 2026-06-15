@@ -1,0 +1,23 @@
+name: test
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    container:
+      image: debian:bookworm
+    strategy:
+      matrix:
+        include:
+          - os-arch: x86_64
+            gcc-arch: x86_64-linux-gnu
+    steps:
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: cliraop-linux-x86_64
+          path: cliraop-linux-x86_64
